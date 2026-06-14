@@ -175,7 +175,7 @@ export function QuoteGenerator() {
       <div className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-8 sm:pt-16">
         {/* Hero */}
         <section className="text-center animate-[fade-in_0.7s_ease-out]">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
@@ -205,7 +205,7 @@ export function QuoteGenerator() {
                 "hover:-translate-y-0.5",
                 category === c
                   ? "border-transparent bg-foreground text-background shadow-md"
-                  : "border-border/70 bg-background/40 text-muted-foreground backdrop-blur-md hover:text-foreground hover:border-border hover:shadow-sm",
+                  : "border-border/70 bg-white/40 text-muted-foreground backdrop-blur-md hover:text-foreground hover:border-border hover:shadow-sm",
               )}
             >
               {c}
@@ -222,7 +222,7 @@ export function QuoteGenerator() {
 
             <QuoteIcon
               aria-hidden
-              className="absolute right-8 top-8 h-12 w-12 text-foreground/[0.06] sm:h-16 sm:w-16"
+              className="absolute right-8 top-8 h-12 w-12 text-white/[0.08] sm:h-16 sm:w-16"
               strokeWidth={1.5}
             />
 
@@ -236,7 +236,7 @@ export function QuoteGenerator() {
               >
                 <Badge
                   variant="secondary"
-                  className="rounded-full border border-border/60 bg-background/70 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] backdrop-blur-md"
+                  className="rounded-full border border-white/20 bg-white/15 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/80 backdrop-blur-md"
                 >
                   {quote.category}
                 </Badge>
@@ -247,7 +247,7 @@ export function QuoteGenerator() {
                 </p>
                 <div className="mt-8 flex items-center gap-3">
                   <div className="h-px flex-1 max-w-12 bg-linear-to-r from-border to-transparent" />
-                  <p className="text-sm font-medium tracking-wide text-muted-foreground">
+                  <p className="text-sm font-medium tracking-wide text-white/80">
                     {quote.author}
                   </p>
                 </div>
@@ -278,7 +278,7 @@ export function QuoteGenerator() {
                 New Quote
               </Button>
 
-              <div className="ml-auto flex items-center gap-1 rounded-full border border-border/60 bg-background/50 p-1 backdrop-blur-md">
+              <div className="ml-auto flex items-center gap-1 rounded-full border border-white/20 bg-white/10 p-1 backdrop-blur-md">
                 <IconAction onClick={toggleFav} label={isFav ? "Unfavorite" : "Favorite"}>
                   <Heart
                     className={cn(
@@ -302,10 +302,10 @@ export function QuoteGenerator() {
             {/* Stats card */}
             <div className="glass-card rounded-2xl p-5">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/70">
                   Session
                 </span>
-                <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground" />
+                <ArrowUpRight className="h-3.5 w-3.5 text-white/70" />
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
                 <Stat label="Seen" value={seenCount} />
@@ -319,19 +319,19 @@ export function QuoteGenerator() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Heart className="h-3.5 w-3.5 text-destructive" />
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/70">
                     Favorites
                   </span>
                 </div>
-                <span className="text-[11px] text-muted-foreground">{favQuotes.length}</span>
+                <span className="text-[11px] text-white/70">{favQuotes.length}</span>
               </div>
 
               {favQuotes.length === 0 ? (
                 <div className="mt-6 flex flex-1 flex-col items-center justify-center text-center">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-muted/60">
-                    <Heart className="h-5 w-5 text-muted-foreground" strokeWidth={1.5} />
+                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10">
+                      <Heart className="h-5 w-5 text-white/50" strokeWidth={1.5} />
                   </div>
-                  <p className="mt-3 text-xs text-muted-foreground">
+                  <p className="mt-3 text-xs text-white/70">
                     Tap the heart to save quotes you love.
                   </p>
                 </div>
@@ -340,7 +340,7 @@ export function QuoteGenerator() {
                   {favQuotes.map((q, i) => (
                     <li
                       key={q.id}
-                      className="group/fav rounded-xl border border-border/50 bg-background/40 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-background/80 hover:shadow-sm animate-[fade-in_0.4s_ease-out]"
+                      className="group/fav rounded-xl border border-white/20 bg-white/10 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/20 hover:shadow-sm animate-[fade-in_0.4s_ease-out]"
                       style={{ animationDelay: `${i * 40}ms` }}
                     >
                       <button
@@ -350,11 +350,11 @@ export function QuoteGenerator() {
                         <p className="line-clamp-2 text-[13px] font-medium leading-snug">
                           {q.text}
                         </p>
-                        <p className="mt-1 text-[11px] text-muted-foreground">— {q.author}</p>
+                        <p className="mt-1 text-[11px] text-white/60">— {q.author}</p>
                       </button>
                       <button
                         onClick={() => removeFav(q.id)}
-                        className="mt-2 inline-flex items-center gap-1 text-[10px] text-muted-foreground opacity-0 transition-opacity duration-200 hover:text-destructive group-hover/fav:opacity-100"
+                        className="mt-2 inline-flex items-center gap-1 text-[10px] text-white/70 opacity-0 transition-opacity duration-200 hover:text-destructive group-hover/fav:opacity-100"
                         aria-label="Remove favorite"
                       >
                         <Trash2 className="h-3 w-3" /> Remove
@@ -370,7 +370,7 @@ export function QuoteGenerator() {
         {/* Footer */}
         <footer className="mt-16 flex flex-col items-center gap-1 text-center">
           <p className="text-[11px] text-muted-foreground">
-            Crafted with care · Press <kbd className="rounded border border-border/70 bg-background/60 px-1.5 py-0.5 font-mono text-[10px]">Space</kbd> for a new quote
+            Crafted with care · Press <kbd className="rounded border border-border/70 bg-white/30 px-1.5 py-0.5 font-mono text-[10px]">Space</kbd> for a new quote
           </p>
         </footer>
       </div>
@@ -394,7 +394,7 @@ function IconAction({
       onClick={onClick}
       aria-label={label}
       title={label}
-      className="grid h-8 w-8 place-items-center rounded-full text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-foreground hover:scale-110 active:scale-95"
+      className="grid h-8 w-8 place-items-center rounded-full text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white hover:scale-110 active:scale-95"
     >
       {children}
     </button>
@@ -403,7 +403,7 @@ function IconAction({
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-xl border border-border/40 bg-background/40 px-2.5 py-2.5 text-center transition-colors hover:border-border hover:bg-background/70">
+    <div className="rounded-xl border border-white/20 bg-white/10 px-2.5 py-2.5 text-center transition-colors hover:border-white/30 hover:bg-white/20">
       <div className="font-display text-2xl leading-none">{value}</div>
       <div className="mt-1 text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
     </div>
