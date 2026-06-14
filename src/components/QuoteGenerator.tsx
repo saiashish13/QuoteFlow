@@ -134,7 +134,7 @@ export function QuoteGenerator() {
       <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur-xl bg-background/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
           <div className="flex items-center gap-2.5">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br from-primary to-[oklch(0.5_0.22_310)] text-primary-foreground shadow-md transition-transform duration-300 hover:scale-105 hover:rotate-3">
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br from-[#FFDE42] to-[#007979] text-primary-foreground shadow-md transition-transform duration-300 hover:scale-105 hover:rotate-3">
               <Sparkles className="h-4 w-4" />
             </div>
             <div className="leading-tight">
