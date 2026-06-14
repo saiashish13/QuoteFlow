@@ -125,16 +125,16 @@ export function QuoteGenerator() {
     <main className="relative min-h-screen">
       {/* Decorative animated background orbs */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full bg-[#FFDE42]/30 blur-3xl animate-[fade-in_1.2s_ease-out]" />
-        <div className="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-[#007979]/30 blur-3xl" />
-        <div className="absolute top-1/2 left-0 h-[18rem] w-[18rem] rounded-full bg-[#00b3b3]/20 blur-3xl" />
+        <div className="absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full bg-primary/15 blur-3xl animate-[fade-in_1.2s_ease-out]" />
+        <div className="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-[oklch(0.7_0.18_220)]/15 blur-3xl" />
+        <div className="absolute top-1/2 left-0 h-[18rem] w-[18rem] rounded-full bg-[oklch(0.8_0.15_320)]/10 blur-3xl" />
       </div>
 
       {/* Navbar */}
       <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur-xl bg-background/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
           <div className="flex items-center gap-2.5">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br from-[#FFDE42] to-[#007979] text-primary-foreground shadow-md transition-transform duration-300 hover:scale-105 hover:rotate-3">
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br from-primary to-[oklch(0.5_0.22_310)] text-primary-foreground shadow-md transition-transform duration-300 hover:scale-105 hover:rotate-3">
               <Sparkles className="h-4 w-4" />
             </div>
             <div className="leading-tight">
@@ -184,7 +184,7 @@ export function QuoteGenerator() {
           </div>
           <h1 className="font-display mt-6 text-balance text-5xl leading-[1.05] sm:text-7xl">
             A little inspiration,
-            <span className="block italic bg-linear-to-r from-[#007979] via-[#00b3b3] to-[#FFDE42] bg-clip-text text-transparent">
+            <span className="block italic bg-linear-to-r from-primary via-[oklch(0.6_0.22_300)] to-[oklch(0.6_0.2_220)] bg-clip-text text-transparent">
               on demand.
             </span>
           </h1>
@@ -217,8 +217,8 @@ export function QuoteGenerator() {
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_320px]">
           {/* Quote card */}
           <article className="glass-card group relative overflow-hidden rounded-[28px] p-8 sm:p-12">
-            <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#FFDE42]/30 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
-            <div className="absolute -bottom-24 -left-12 h-48 w-48 rounded-full bg-[#007979]/30 blur-3xl" />
+            <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-primary/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
+            <div className="absolute -bottom-24 -left-12 h-48 w-48 rounded-full bg-[oklch(0.7_0.18_220)]/25 blur-3xl" />
 
             <QuoteIcon
               aria-hidden

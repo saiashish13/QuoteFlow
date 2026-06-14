@@ -71,7 +71,7 @@
   --card-foreground: oklch(0.18 0.02 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 260);
-  --primary: oklch(0.55 0.15 195);
+  --primary: oklch(0.55 0.22 275);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.22 0.03 265);
@@ -85,9 +85,9 @@
   --input: oklch(0.929 0.013 255.508);
   --ring: oklch(0.55 0.22 275);
 
-  --gradient-bg: radial-gradient(ellipse at top left, #FFDE42 0%, transparent 50%),
-                 radial-gradient(ellipse at bottom right, #007979 0%, transparent 50%),
-                 linear-gradient(180deg, #FFDE42, #00b3b3);
+  --gradient-bg: radial-gradient(ellipse at top left, oklch(0.92 0.08 280) 0%, transparent 50%),
+                 radial-gradient(ellipse at bottom right, oklch(0.92 0.07 200) 0%, transparent 50%),
+                 linear-gradient(180deg, oklch(0.985 0.005 250), oklch(0.96 0.02 260));
   --glass-bg: color-mix(in oklab, white 70%, transparent);
   --glass-border: color-mix(in oklab, white 60%, transparent);
   --shadow-glass: 0 20px 60px -20px oklch(0.4 0.15 275 / 0.25), 0 8px 24px -12px oklch(0.3 0.1 260 / 0.18);
@@ -114,7 +114,7 @@
   --card-foreground: oklch(0.97 0.01 250);
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.7 0.15 195);
+  --primary: oklch(0.7 0.2 275);
   --primary-foreground: oklch(0.15 0.02 265);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
@@ -128,9 +128,9 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.7 0.2 275);
 
-  --gradient-bg: radial-gradient(ellipse at top left, #b8a030 0%, transparent 55%),
-                 radial-gradient(ellipse at bottom right, #004d4d 0%, transparent 55%),
-                 linear-gradient(180deg, #0d3d3d, #1a4d4d);
+  --gradient-bg: radial-gradient(ellipse at top left, oklch(0.3 0.15 280) 0%, transparent 55%),
+                 radial-gradient(ellipse at bottom right, oklch(0.25 0.12 220) 0%, transparent 55%),
+                 linear-gradient(180deg, oklch(0.14 0.02 265), oklch(0.18 0.03 270));
   --glass-bg: color-mix(in oklab, white 8%, transparent);
   --glass-border: color-mix(in oklab, white 12%, transparent);
   --shadow-glass: 0 24px 60px -20px oklch(0 0 0 / 0.6), 0 8px 24px -12px oklch(0 0 0 / 0.4);
