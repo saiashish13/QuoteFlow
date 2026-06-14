@@ -125,9 +125,9 @@ export function QuoteGenerator() {
     <main className="relative min-h-screen">
       {/* Decorative animated background orbs */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full bg-primary/15 blur-3xl animate-[fade-in_1.2s_ease-out]" />
-        <div className="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-[oklch(0.7_0.18_220)]/15 blur-3xl" />
-        <div className="absolute top-1/2 left-0 h-[18rem] w-[18rem] rounded-full bg-[oklch(0.8_0.15_320)]/10 blur-3xl" />
+        <div className="absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full bg-[#FFDE42]/30 blur-3xl animate-[fade-in_1.2s_ease-out]" />
+        <div className="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-[#007979]/30 blur-3xl" />
+        <div className="absolute top-1/2 left-0 h-[18rem] w-[18rem] rounded-full bg-[#00b3b3]/20 blur-3xl" />
       </div>
 
       {/* Navbar */}
