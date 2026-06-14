@@ -3,22 +3,29 @@ import {
   ArrowUpRight,
   Copy,
   Heart,
-  Moon,
   Quote as QuoteIcon,
   Share2,
   Shuffle,
-  Sparkles,
-  Sun,
   Trash2,
+  FolderPlus,
+  Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { CATEGORIES, QUOTES, type Quote } from "@/lib/quotes";
 import { cn } from "@/lib/utils";
+import { loadCollections, saveCollections, type Collection } from "@/lib/collections";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const FAVS_KEY = "qg:favorites";
-const THEME_KEY = "qg:theme";
 
 function pickRandom(pool: Quote[], excludeId?: string): Quote {
   if (pool.length === 0) return QUOTES[0];
@@ -37,24 +44,20 @@ export function QuoteGenerator() {
   const [animKey, setAnimKey] = useState(0);
   const [loading, setLoading] = useState(false);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [dark, setDark] = useState(false);
   const [seenCount, setSeenCount] = useState(0);
+  const [collections, setCollections] = useState<Collection[]>([]);
 
   const pool = useMemo(
     () => (category === "All" ? QUOTES : QUOTES.filter((q) => q.category === category)),
     [category],
   );
 
-  // Init theme + favorites
+  // Init favorites + collections
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(THEME_KEY);
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const isDark = stored ? stored === "dark" : prefersDark;
-      setDark(isDark);
-      document.documentElement.classList.toggle("dark", isDark);
       const favs = JSON.parse(localStorage.getItem(FAVS_KEY) || "[]");
       if (Array.isArray(favs)) setFavorites(favs);
+      setCollections(loadCollections());
     } catch {}
     setQuote(pickRandom(QUOTES));
     setSeenCount(1);
@@ -74,13 +77,6 @@ export function QuoteGenerator() {
   useEffect(() => {
     if (quote && !pool.find((q) => q.id === quote.id)) newQuote();
   }, [category]); // eslint-disable-line
-
-  const toggleTheme = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    try { localStorage.setItem(THEME_KEY, next ? "dark" : "light"); } catch {}
-  };
 
   const isFav = quote ? favorites.includes(quote.id) : false;
   const toggleFav = () => {
@@ -121,58 +117,25 @@ export function QuoteGenerator() {
     try { localStorage.setItem(FAVS_KEY, JSON.stringify(next)); } catch {}
   };
 
+  const toggleInCollection = (collectionId: string) => {
+    if (!quote) return;
+    const next = collections.map((c) => {
+      if (c.id !== collectionId) return c;
+      const has = c.quoteIds.includes(quote.id);
+      return {
+        ...c,
+        quoteIds: has ? c.quoteIds.filter((id) => id !== quote.id) : [...c.quoteIds, quote.id],
+      };
+    });
+    setCollections(next);
+    saveCollections(next);
+    const target = next.find((c) => c.id === collectionId);
+    const has = target?.quoteIds.includes(quote.id);
+    toast(has ? `Added to ${target?.name}` : `Removed from ${target?.name}`);
+  };
+
   return (
-    <main className="relative min-h-screen">
-      {/* Decorative animated background orbs */}
-      <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full bg-primary/15 blur-3xl animate-[fade-in_1.2s_ease-out]" />
-        <div className="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-[oklch(0.7_0.18_220)]/15 blur-3xl" />
-        <div className="absolute top-1/2 left-0 h-[18rem] w-[18rem] rounded-full bg-[oklch(0.8_0.15_320)]/10 blur-3xl" />
-      </div>
-
-      {/* Navbar */}
-      <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur-xl bg-background/60">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
-          <div className="flex items-center gap-2.5">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br from-primary to-[oklch(0.5_0.22_310)] text-primary-foreground shadow-md transition-transform duration-300 hover:scale-105 hover:rotate-3">
-              <Sparkles className="h-4 w-4" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold tracking-tight">Lumen</div>
-              <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Quotes</div>
-            </div>
-          </div>
-          <nav className="hidden items-center gap-1 sm:flex">
-            {["Discover", "Library", "Collections"].map((item, i) => (
-              <button
-                key={item}
-                className={cn(
-                  "relative rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors",
-                  i === 0 ? "text-foreground" : "text-muted-foreground hover:text-foreground",
-                )}
-              >
-                {item}
-                {i === 0 && (
-                  <span className="absolute inset-x-3 -bottom-px h-px bg-linear-to-r from-transparent via-primary to-transparent" />
-                )}
-              </button>
-            ))}
-          </nav>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full transition-transform duration-300 hover:rotate-12"
-              aria-label="Toggle theme"
-            >
-              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      <div className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-8 sm:pt-16">
+    <>
         {/* Hero */}
         <section className="text-center animate-[fade-in_0.7s_ease-out]">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
@@ -287,6 +250,40 @@ export function QuoteGenerator() {
                     )}
                   />
                 </IconAction>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      aria-label="Add to collection"
+                      title="Add to collection"
+                      className="grid h-8 w-8 place-items-center rounded-full text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white hover:scale-110 active:scale-95"
+                    >
+                      <FolderPlus className="h-4 w-4" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56">
+                    <DropdownMenuLabel>Add to collection</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    {collections.length === 0 ? (
+                      <DropdownMenuItem disabled className="text-xs">
+                        Create one in Collections
+                      </DropdownMenuItem>
+                    ) : (
+                      collections.map((c) => {
+                        const has = quote ? c.quoteIds.includes(quote.id) : false;
+                        return (
+                          <DropdownMenuItem
+                            key={c.id}
+                            onClick={() => toggleInCollection(c.id)}
+                            className="flex items-center justify-between gap-2 text-xs"
+                          >
+                            <span className="truncate">{c.name}</span>
+                            {has && <Check className="h-3.5 w-3.5 text-primary" />}
+                          </DropdownMenuItem>
+                        );
+                      })
+                    )}
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <IconAction onClick={copy} label="Copy quote">
                   <Copy className="h-4 w-4" />
                 </IconAction>
@@ -373,10 +370,9 @@ export function QuoteGenerator() {
             Crafted with care · Press <kbd className="rounded border border-border/70 bg-white/30 px-1.5 py-0.5 font-mono text-[10px]">Space</kbd> for a new quote
           </p>
         </footer>
-      </div>
 
       <KeyboardShortcut onTrigger={newQuote} />
-    </main>
+    </>
   );
 }
 
