@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { QuoteGenerator } from "@/components/QuoteGenerator";
-import { Toaster } from "@/components/ui/sonner";
+import { SiteShell } from "@/components/SiteShell";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,9 +16,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <>
+    <SiteShell>
       <QuoteGenerator />
-      <Toaster />
-    </>
+    </SiteShell>
   );
 }
