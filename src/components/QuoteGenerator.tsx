@@ -403,7 +403,7 @@ function IconAction({
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-xl border border-border/40 bg-background/40 px-2.5 py-2.5 text-center transition-colors hover:border-border hover:bg-background/70">
+    <div className="rounded-xl border border-white/20 bg-white/10 px-2.5 py-2.5 text-center transition-colors hover:border-white/30 hover:bg-white/20">
       <div className="font-display text-2xl leading-none">{value}</div>
       <div className="mt-1 text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
     </div>
