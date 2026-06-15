@@ -96,7 +96,7 @@ function CollectionsPage() {
   return (
     <SiteShell>
       <section className="text-center animate-[fade-in_0.6s_ease-out]">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 dark:bg-white/10 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
           <FolderHeart className="h-3 w-3" />
           {collections.length} collection{collections.length === 1 ? "" : "s"}
         </div>
@@ -109,7 +109,7 @@ function CollectionsPage() {
       </section>
 
       {/* Create */}
-      <div className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-full border border-border/60 bg-white/50 px-2 py-1.5 shadow-sm backdrop-blur-md">
+      <div className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-full border border-border/60 bg-white/50 dark:bg-white/10 px-2 py-1.5 shadow-sm backdrop-blur-md">
         <Input
           value={newName}
           onChange={(e) => setNewName(e.target.value)}

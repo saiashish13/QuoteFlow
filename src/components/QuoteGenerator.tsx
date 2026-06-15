@@ -138,7 +138,7 @@ export function QuoteGenerator() {
     <>
         {/* Hero */}
         <section className="text-center animate-[fade-in_0.7s_ease-out]">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 dark:bg-white/10 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
@@ -168,7 +168,7 @@ export function QuoteGenerator() {
                 "hover:-translate-y-0.5",
                 category === c
                   ? "border-transparent bg-foreground text-background shadow-md"
-                  : "border-border/70 bg-white/40 text-muted-foreground backdrop-blur-md hover:text-foreground hover:border-border hover:shadow-sm",
+                  : "border-border/70 bg-white/40 dark:bg-white/10 text-muted-foreground backdrop-blur-md hover:text-foreground hover:border-border hover:shadow-sm",
               )}
             >
               {c}
@@ -367,7 +367,7 @@ export function QuoteGenerator() {
         {/* Footer */}
         <footer className="mt-16 flex flex-col items-center gap-1 text-center">
           <p className="text-[11px] text-muted-foreground">
-            Crafted with care · Press <kbd className="rounded border border-border/70 bg-white/30 px-1.5 py-0.5 font-mono text-[10px]">Space</kbd> for a new quote
+            Crafted with care · Press <kbd className="rounded border border-border/70 bg-white/30 dark:bg-white/10 px-1.5 py-0.5 font-mono text-[10px]">Space</kbd> for a new quote
           </p>
         </footer>
 
