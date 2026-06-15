@@ -188,3 +188,104 @@
     box-shadow: var(--shadow-glass);
   }
 }
+
+/* ============================================================
+ * Global micro-interactions
+ * Every interactive element gets a smooth hover + click feedback.
+ * ============================================================ */
+@layer base {
+  button,
+  a,
+  [role="button"],
+  [role="link"],
+  [role="menuitem"],
+  [role="tab"],
+  summary,
+  label[for],
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    transition:
+      transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease,
+      filter 0.2s ease;
+    will-change: transform;
+  }
+
+  button:hover:not(:disabled),
+  a:hover,
+  [role="button"]:hover,
+  [role="menuitem"]:hover,
+  [role="tab"]:hover,
+  summary:hover {
+    transform: translateY(-1px) scale(1.02);
+    filter: brightness(1.05);
+  }
+
+  button:active:not(:disabled),
+  a:active,
+  [role="button"]:active,
+  [role="menuitem"]:active,
+  [role="tab"]:active,
+  summary:active {
+    transform: translateY(0) scale(0.97);
+    filter: brightness(0.97);
+    transition-duration: 0.08s;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--color-ring) 70%, transparent);
+    outline-offset: 2px;
+  }
+
+  /* Cards & glass surfaces lift on hover */
+  .glass-card,
+  [data-slot="card"] {
+    transition:
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .glass-card:hover,
+  [data-slot="card"]:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 28px 70px -22px oklch(0 0 0 / 0.4),
+      0 10px 28px -14px oklch(0 0 0 / 0.3);
+  }
+  .glass-card:active,
+  [data-slot="card"]:active {
+    transform: translateY(-1px) scale(0.995);
+  }
+
+  /* Inputs subtly react on focus */
+  input,
+  textarea,
+  select {
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus {
+    transform: translateY(-1px);
+  }
+
+  /* Honor reduced-motion users */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      transform: none !important;
+    }
+  }
+}
