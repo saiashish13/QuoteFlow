@@ -84,7 +84,7 @@ function LibraryPage() {
   return (
     <SiteShell>
       <section className="text-center animate-[fade-in_0.6s_ease-out]">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-white/40 dark:bg-white/10 px-3 py-1 text-[11px] font-medium text-muted-foreground backdrop-blur-md">
           {QUOTES.length} quotes · {CATEGORIES.length - 1} categories
         </div>
         <h1 className="font-display mt-5 text-balance text-5xl leading-[1.05] sm:text-6xl">
@@ -96,7 +96,7 @@ function LibraryPage() {
       </section>
 
       {/* Search */}
-      <div className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-full border border-border/60 bg-white/50 px-4 py-1.5 shadow-sm backdrop-blur-md">
+      <div className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-full border border-border/60 bg-white/50 dark:bg-white/10 px-4 py-1.5 shadow-sm backdrop-blur-md">
         <Search className="h-4 w-4 text-muted-foreground" />
         <Input
           value={query}
@@ -124,7 +124,7 @@ function LibraryPage() {
               "rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ease-out hover:-translate-y-0.5",
               category === c
                 ? "border-transparent bg-foreground text-background shadow-md"
-                : "border-border/70 bg-white/40 text-muted-foreground backdrop-blur-md hover:text-foreground hover:border-border hover:shadow-sm",
+                : "border-border/70 bg-white/40 dark:bg-white/10 text-muted-foreground backdrop-blur-md hover:text-foreground hover:border-border hover:shadow-sm",
             )}
           >
             {c}
