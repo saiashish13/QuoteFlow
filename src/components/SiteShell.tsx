@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Moon, Sparkles, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
@@ -44,14 +44,25 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
       <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur-xl bg-background/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br from-primary to-[oklch(0.5_0.22_310)] text-primary-foreground shadow-md transition-transform duration-300 hover:scale-105 hover:rotate-3">
-              <Sparkles className="h-4 w-4" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold tracking-tight">Lumen</div>
-              <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Quotes</div>
-            </div>
+          <Link to="/" className="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="160" height="40">
+              <defs>
+                <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#00F2FE" />
+                  <stop offset="100%" stopColor="#4FACFE" />
+                </linearGradient>
+              </defs>
+              <rect width="500" height="120" rx="18" fill="#0D0D0E"/>
+              <g transform="translate(20, 20)">
+                <rect width="80" height="80" rx="22" fill="#1C1C1E" stroke="#2C2C2E" strokeWidth="1.5"/>
+                <path d="M32,45 C32,33 42,28 52,28 L52,38 C46,38 43,41 43,45 L50,45 L50,58 L32,58 Z" fill="none" stroke="url(#prismGrad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                <line x1="56" y1="32" x2="62" y2="26" stroke="url(#prismGrad)" strokeWidth="2.5" strokeLinecap="round" />
+                <line x1="56" y1="44" x2="64" y2="44" stroke="url(#prismGrad)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
+              </g>
+              <text x="125" y="62" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" fontSize="32" fontWeight="800" fill="#FFFFFF" letterSpacing="-0.01em">LUMEN</text>
+              <text x="238" y="62" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" fontSize="32" fontWeight="300" fill="#A1A1AA" letterSpacing="-0.01em">QUOTES</text>
+              <text x="127" y="84" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" fontSize="10" fontWeight="500" fill="#00F2FE" letterSpacing="0.4em">MINIMAL DESIGN ENGINE</text>
+            </svg>
           </Link>
           <nav className="hidden items-center gap-1 sm:flex">
             {NAV.map((item) => {
