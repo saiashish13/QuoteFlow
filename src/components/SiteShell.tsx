@@ -44,25 +44,31 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
       <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur-xl bg-background/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
-          <Link to="/" className="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="160" height="40">
-              <defs>
-                <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#00F2FE" />
-                  <stop offset="100%" stopColor="#4FACFE" />
-                </linearGradient>
-              </defs>
-              <rect width="500" height="120" rx="18" fill="#0D0D0E"/>
-              <g transform="translate(20, 20)">
-                <rect width="80" height="80" rx="22" fill="#1C1C1E" stroke="#2C2C2E" strokeWidth="1.5"/>
-                <path d="M32,45 C32,33 42,28 52,28 L52,38 C46,38 43,41 43,45 L50,45 L50,58 L32,58 Z" fill="none" stroke="url(#prismGrad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <line x1="56" y1="32" x2="62" y2="26" stroke="url(#prismGrad)" strokeWidth="2.5" strokeLinecap="round" />
-                <line x1="56" y1="44" x2="64" y2="44" stroke="url(#prismGrad)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
-              </g>
-              <text x="125" y="62" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" fontSize="32" fontWeight="800" fill="#FFFFFF" letterSpacing="-0.01em">LUMEN</text>
-              <text x="238" y="62" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" fontSize="32" fontWeight="300" fill="#A1A1AA" letterSpacing="-0.01em">QUOTES</text>
-              <text x="127" y="84" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" fontSize="10" fontWeight="500" fill="#00F2FE" letterSpacing="0.4em">MINIMAL DESIGN ENGINE</text>
-            </svg>
+          <Link to="/" className="group/logo flex items-center relative">
+            <div className="transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/logo:scale-[1.04] group-hover/logo:-translate-y-0.5 group-hover/logo:drop-shadow-[0_0_18px_rgba(0,242,254,0.55)] active:scale-[0.97] active:drop-shadow-none active:translate-y-0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="160" height="40" className="transition-transform duration-300">
+                <defs>
+                  <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#00F2FE" />
+                    <stop offset="100%" stopColor="#4FACFE" />
+                  </linearGradient>
+                  <linearGradient id="prismGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#00F2FE" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#4FACFE" stopOpacity="0.4" />
+                  </linearGradient>
+                </defs>
+                <rect width="500" height="120" rx="24" fill="#0D0D0E" stroke="url(#prismGradLight)" strokeWidth="2" opacity="0.92"/>
+                <g transform="translate(20, 20)">
+                  <rect width="80" height="80" rx="22" fill="#1C1C1E" stroke="#2C2C2E" strokeWidth="1.5"/>
+                  <path d="M32,45 C32,33 42,28 52,28 L52,38 C46,38 43,41 43,45 L50,45 L50,58 L32,58 Z" fill="none" stroke="url(#prismGrad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <line x1="56" y1="32" x2="62" y2="26" stroke="url(#prismGrad)" strokeWidth="2.5" strokeLinecap="round" />
+                  <line x1="56" y1="44" x2="64" y2="44" stroke="url(#prismGrad)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
+                </g>
+                <text x="125" y="62" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" fontSize="32" fontWeight="800" fill="#FFFFFF" letterSpacing="-0.01em">LUMEN</text>
+                <text x="238" y="62" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" fontSize="32" fontWeight="300" fill="#A1A1AA" letterSpacing="-0.01em">QUOTES</text>
+                <text x="127" y="84" fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif" fontSize="10" fontWeight="500" fill="#00F2FE" letterSpacing="0.4em">MINIMAL DESIGN ENGINE</text>
+              </svg>
+            </div>
           </Link>
           <nav className="hidden items-center gap-1 sm:flex">
             {NAV.map((item) => {
