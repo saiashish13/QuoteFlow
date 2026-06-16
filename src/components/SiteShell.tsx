@@ -42,11 +42,22 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <div className="absolute top-1/2 left-0 h-[18rem] w-[18rem] rounded-full bg-[oklch(0.8_0.15_320)]/10 blur-3xl" />
       </div>
 
-      <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur-xl bg-background/60">
+      <header className="sticky top-0 z-40 border-b border-border/60 supports-[backdrop-filter]:bg-background/70 supports-[backdrop-filter]:backdrop-blur-xl supports-[backdrop-filter]:backdrop-saturate-150 bg-background/95 shadow-[0_1px_0_0_oklch(1_0_0_/_0.04)] dark:shadow-[0_1px_0_0_oklch(1_0_0_/_0.06)]">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-md focus:bg-background focus:px-3 focus:py-1.5 focus:text-sm focus:text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          Skip to content
+        </a>
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
-          <Link to="/" className="group/logo flex items-center relative">
+          <Link
+            to="/"
+            aria-label="Lumen Quotes — Home"
+            className="group/logo relative flex items-center rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
             <div className="transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/logo:scale-[1.04] group-hover/logo:-translate-y-0.5 group-hover/logo:drop-shadow-[0_0_18px_rgba(0,242,254,0.55)] active:scale-[0.97] active:drop-shadow-none active:translate-y-0">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="160" height="40" className="transition-transform duration-300">
+                <title>Lumen Quotes</title>
                 <defs>
                   <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#00F2FE" />
@@ -70,15 +81,16 @@ export function SiteShell({ children }: { children: ReactNode }) {
               </svg>
             </div>
           </Link>
-          <nav className="hidden items-center gap-1 sm:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-1 sm:flex">
             {NAV.map((item) => {
               const active = pathname === item.to;
               return (
                 <Link
                   key={item.to}
                   to={item.to}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors",
+                    "relative rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                     active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                   )}
                 >
@@ -95,23 +107,26 @@ export function SiteShell({ children }: { children: ReactNode }) {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full transition-transform duration-300 hover:rotate-12"
-              aria-label="Toggle theme"
+              className="rounded-full transition-transform duration-300 hover:rotate-12 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+              aria-pressed={dark}
+              title={dark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
           </div>
         </div>
         {/* Mobile nav */}
-        <nav className="flex items-center justify-center gap-1 border-t border-border/40 px-5 py-2 sm:hidden">
+        <nav aria-label="Primary mobile" className="flex items-center justify-center gap-1 border-t border-border/60 px-5 py-2 sm:hidden">
           {NAV.map((item) => {
             const active = pathname === item.to;
             return (
               <Link
                 key={item.to}
                 to={item.to}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-full px-3 py-1 text-xs font-medium",
+                  "rounded-full px-3 py-1 text-xs font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   active ? "bg-foreground text-background" : "text-muted-foreground",
                 )}
               >
@@ -122,7 +137,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </nav>
       </header>
 
-      <div className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-8 sm:pt-16">
+      <div id="main-content" className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-8 sm:pt-16">
         {children}
       </div>
 
