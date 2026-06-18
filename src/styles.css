@@ -150,6 +150,18 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                fill 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                stroke 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html {
+    transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   body {
@@ -161,8 +173,20 @@
     letter-spacing: -0.011em;
     -webkit-font-smoothing: antialiased;
   }
+
   ::selection {
     background: color-mix(in oklab, var(--color-primary) 25%, transparent);
+  }
+
+  /* Theme switch micro-animation: brief lift + subtle dim */
+  @keyframes theme-slide-fade {
+    0%   { opacity: 1; transform: translateY(0); }
+    40%  { opacity: 0.92; transform: translateY(-3px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .theme-switching {
+    animation: theme-slide-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
