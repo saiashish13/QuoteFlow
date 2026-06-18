@@ -15,6 +15,7 @@ const NAV = [
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const [dark, setDark] = useState(false);
+  const [themeSwitching, setThemeSwitching] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
@@ -28,6 +29,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleTheme = () => {
+    setThemeSwitching(true);
+    setTimeout(() => setThemeSwitching(false), 520);
+
     const next = !dark;
     setDark(next);
     document.documentElement.classList.toggle("dark", next);
@@ -137,7 +141,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </nav>
       </header>
 
-      <div id="main-content" className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-8 sm:pt-16">
+      <div id="main-content" className={cn("mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-8 sm:pt-16", themeSwitching && "theme-switching")}>
         {children}
       </div>
 
