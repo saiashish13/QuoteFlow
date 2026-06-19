@@ -183,7 +183,7 @@ export function QuoteGenerator() {
         {/* Main grid */}
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_320px]">
           {/* Quote card */}
-          <article data-changing={isChanging} className={cn("glass-card group relative overflow-hidden rounded-[28px] p-8 sm:p-12", isChanging && "quote-changing")}>
+          <article className={cn("glass-card group relative overflow-hidden rounded-[28px] p-8 sm:p-12", isChanging && "quote-changing")}>
             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-primary/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
             <div className="absolute -bottom-24 -left-12 h-48 w-48 rounded-full bg-[oklch(0.7_0.18_220)]/25 blur-3xl" />
 
