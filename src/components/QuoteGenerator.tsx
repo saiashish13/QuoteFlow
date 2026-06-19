@@ -76,12 +76,6 @@ export function QuoteGenerator() {
     }, 220);
     window.setTimeout(() => setIsChanging(false), 600);
   }, [pool, loading]);
-      setQuote((prev) => pickRandom(pool, prev?.id));
-      setAnimKey((k) => k + 1);
-      setLoading(false);
-      setSeenCount((c) => c + 1);
-    }, 220);
-  }, [pool, loading]);
 
   // Re-pick when category changes
   useEffect(() => {
