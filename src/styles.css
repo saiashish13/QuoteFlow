@@ -194,6 +194,38 @@
   .theme-switching [data-slot="card"] {
     animation: theme-slide-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
+  /* ================================================================
+   * Synchronized quote-card transition on "New Quote"
+   * Lift + dim + shadow swell, then settle back.
+   * Respects prefers-reduced-motion via the global media query below.
+   * ================================================================ */
+  @keyframes quote-card-change {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      box-shadow: var(--shadow-glass);
+    }
+    30% {
+      opacity: 0.92;
+      transform: translateY(-6px) scale(0.994);
+      box-shadow: 0 28px 72px -18px oklch(0 0 0 / 0.42), 0 10px 28px -12px oklch(0 0 0 / 0.32);
+    }
+    70% {
+      opacity: 0.92;
+      transform: translateY(-6px) scale(0.994);
+      box-shadow: 0 28px 72px -18px oklch(0 0 0 / 0.42), 0 10px 28px -12px oklch(0 0 0 / 0.32);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      box-shadow: var(--shadow-glass);
+    }
+  }
+
+  .quote-changing {
+    animation: quote-card-change 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 @utility glass-card {
