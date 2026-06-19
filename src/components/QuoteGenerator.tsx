@@ -73,6 +73,7 @@ export function QuoteGenerator() {
   }, [animKey]);
 
   const newQuote = useCallback(() => {
+    if (loading) return;
     setLoading(true);
     window.setTimeout(() => {
       setQuote((prev) => pickRandom(pool, prev?.id));
