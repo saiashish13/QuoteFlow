@@ -345,7 +345,7 @@ export function QuoteGenerator() {
                       style={{ animationDelay: `${i * 40}ms` }}
                     >
                       <button
-                        onClick={() => { setQuote(q); setAnimKey((k) => k + 1); }}
+                        onClick={() => { setIsChanging(true); setQuote(q); setAnimKey((k) => k + 1); window.setTimeout(() => setIsChanging(false), 600); }}
                         className="block w-full text-left"
                       >
                         <p className="line-clamp-2 text-[13px] font-medium leading-snug">
