@@ -48,10 +48,6 @@ export function QuoteGenerator() {
   const [collections, setCollections] = useState<Collection[]>([]);
   const [isChanging, setIsChanging] = useState(false);
 
-  useEffect(() => {
-    console.log("isChanging:", isChanging);
-  }, [isChanging]);
-
   const pool = useMemo(
     () => (category === "All" ? QUOTES : QUOTES.filter((q) => q.category === category)),
     [category],
