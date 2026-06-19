@@ -188,6 +188,12 @@
   .theme-switching {
     animation: theme-slide-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
+  /* Synchronize glass cards (and their internal shadows) with theme switch */
+  .theme-switching .glass-card,
+  .theme-switching [data-slot="card"] {
+    animation: theme-slide-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 @utility glass-card {
