@@ -81,7 +81,7 @@ export function QuoteGenerator() {
       setLoading(false);
       setSeenCount((c) => c + 1);
     }, 220);
-  }, [pool]);
+  }, [pool, loading]);
 
   // Re-pick when category changes
   useEffect(() => {
