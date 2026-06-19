@@ -64,18 +64,18 @@ export function QuoteGenerator() {
     setSeenCount(1);
   }, []);
 
-  // Synchronize card transition with content change
-  useEffect(() => {
-    if (animKey === 0) return;
-    setIsChanging(true);
-    const id = window.setTimeout(() => setIsChanging(false), 600);
-    return () => window.clearTimeout(id);
-  }, [animKey]);
-
   const newQuote = useCallback(() => {
     if (loading) return;
+    setIsChanging(true);
     setLoading(true);
     window.setTimeout(() => {
+      setQuote((prev) => pickRandom(pool, prev?.id));
+      setAnimKey((k) => k + 1);
+      setLoading(false);
+      setSeenCount((c) => c + 1);
+    }, 220);
+    window.setTimeout(() => setIsChanging(false), 600);
+  }, [pool, loading]);
       setQuote((prev) => pickRandom(pool, prev?.id));
       setAnimKey((k) => k + 1);
       setLoading(false);
