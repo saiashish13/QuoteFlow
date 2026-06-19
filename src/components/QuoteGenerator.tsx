@@ -64,6 +64,14 @@ export function QuoteGenerator() {
     setSeenCount(1);
   }, []);
 
+  // Synchronize card transition with content change
+  useEffect(() => {
+    if (animKey === 0) return;
+    setIsChanging(true);
+    const id = window.setTimeout(() => setIsChanging(false), 600);
+    return () => window.clearTimeout(id);
+  }, [animKey]);
+
   const newQuote = useCallback(() => {
     setLoading(true);
     window.setTimeout(() => {
