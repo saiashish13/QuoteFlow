@@ -46,6 +46,7 @@ export function QuoteGenerator() {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [seenCount, setSeenCount] = useState(0);
   const [collections, setCollections] = useState<Collection[]>([]);
+  const [isChanging, setIsChanging] = useState(false);
 
   const pool = useMemo(
     () => (category === "All" ? QUOTES : QUOTES.filter((q) => q.category === category)),
