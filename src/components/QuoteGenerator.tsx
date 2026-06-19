@@ -46,6 +46,7 @@ export function QuoteGenerator() {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [seenCount, setSeenCount] = useState(0);
   const [collections, setCollections] = useState<Collection[]>([]);
+  const [isChanging, setIsChanging] = useState(false);
 
   const pool = useMemo(
     () => (category === "All" ? QUOTES : QUOTES.filter((q) => q.category === category)),
@@ -64,6 +65,8 @@ export function QuoteGenerator() {
   }, []);
 
   const newQuote = useCallback(() => {
+    if (loading) return;
+    setIsChanging(true);
     setLoading(true);
     window.setTimeout(() => {
       setQuote((prev) => pickRandom(pool, prev?.id));
@@ -71,7 +74,8 @@ export function QuoteGenerator() {
       setLoading(false);
       setSeenCount((c) => c + 1);
     }, 220);
-  }, [pool]);
+    window.setTimeout(() => setIsChanging(false), 600);
+  }, [pool, loading]);
 
   // Re-pick when category changes
   useEffect(() => {
@@ -179,7 +183,7 @@ export function QuoteGenerator() {
         {/* Main grid */}
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_320px]">
           {/* Quote card */}
-          <article className="glass-card group relative overflow-hidden rounded-[28px] p-8 sm:p-12">
+          <article className={cn("glass-card group relative overflow-hidden rounded-[28px] p-8 sm:p-12", isChanging && "quote-changing")}>
             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-primary/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
             <div className="absolute -bottom-24 -left-12 h-48 w-48 rounded-full bg-[oklch(0.7_0.18_220)]/25 blur-3xl" />
 
@@ -341,7 +345,7 @@ export function QuoteGenerator() {
                       style={{ animationDelay: `${i * 40}ms` }}
                     >
                       <button
-                        onClick={() => { setQuote(q); setAnimKey((k) => k + 1); }}
+                        onClick={() => { setIsChanging(true); setQuote(q); setAnimKey((k) => k + 1); window.setTimeout(() => setIsChanging(false), 600); }}
                         className="block w-full text-left"
                       >
                         <p className="line-clamp-2 text-[13px] font-medium leading-snug">
