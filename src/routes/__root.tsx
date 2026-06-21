@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportClientError } from "../lib/error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -38,7 +38,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportClientError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -77,18 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Aura Quotes generates inspiring random quotes with a modern, Apple-inspired design." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Aura Quotes generates inspiring random quotes with a modern, Apple-inspired design." },
+      { title: "Quote Flow" },
+      { name: "description", content: "Quote Flow helps you discover, save, and organize inspiring quotes." },
+      { name: "author", content: "QuoteFlow" },
+      { property: "og:title", content: "Quote Flow" },
+      { property: "og:description", content: "Discover, save, and organize inspiring quotes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Aura Quotes generates inspiring random quotes with a modern, Apple-inspired design." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/838cee9b-da3d-4874-9f7b-d450bc76ed20/id-preview-2dcce605--d54860fa-99a9-404a-b305-9211f3ef932c.lovable.app-1781585543464.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/838cee9b-da3d-4874-9f7b-d450bc76ed20/id-preview-2dcce605--d54860fa-99a9-404a-b305-9211f3ef932c.lovable.app-1781585543464.png" },
+      { name: "twitter:title", content: "Quote Flow" },
+      { name: "twitter:description", content: "Discover, save, and organize inspiring quotes." },
     ],
     links: [
       {

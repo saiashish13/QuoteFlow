@@ -22,10 +22,10 @@ const FAVS_KEY = "qg:favorites";
 export const Route = createFileRoute("/library")({
   head: () => ({
     meta: [
-      { title: "Library — Lumen Quotes" },
+      { title: "Library - Quote Flow" },
       { name: "description", content: "Browse the full library of curated quotes by category and search." },
-      { property: "og:title", content: "Library — Lumen Quotes" },
-      { property: "og:description", content: "Browse every quote in the Lumen library." },
+      { property: "og:title", content: "Library - Quote Flow" },
+      { property: "og:description", content: "Browse every quote in the Quote Flow library." },
     ],
   }),
   component: LibraryPage,

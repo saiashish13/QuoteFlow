@@ -17,9 +17,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/collections")({
   head: () => ({
     meta: [
-      { title: "Collections — Lumen Quotes" },
+      { title: "Collections - Quote Flow" },
       { name: "description", content: "Create custom folders to organize the quotes that matter to you." },
-      { property: "og:title", content: "Collections — Lumen Quotes" },
+      { property: "og:title", content: "Collections - Quote Flow" },
       { property: "og:description", content: "Organize quotes into your own collections." },
     ],
   }),
