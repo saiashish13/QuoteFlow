@@ -95,19 +95,6 @@ It exists as a lightweight, portfolio-ready SaaS-style product experience that d
 
 ---
 
-## 🖼️ Screenshots
-
-> Replace these placeholders with screenshots from your deployed app or `/docs/screenshots` assets.
-
-| Landing Page | Dashboard / Discover |
-| --- | --- |
-| ![Landing page placeholder](https://placehold.co/900x520/0D0D0E/00F2FE?text=Landing+Page) | ![Dashboard placeholder](https://placehold.co/900x520/111827/06D6A0?text=Discover+Dashboard) |
-
-| Admin Panel | Analytics | Mobile View |
-| --- | --- | --- |
-| ![Admin panel placeholder](https://placehold.co/600x720/161618/FFD166?text=Admin+Panel+Planned) | ![Analytics placeholder](https://placehold.co/600x720/101828/38BDF8?text=Analytics+Planned) | ![Mobile placeholder](https://placehold.co/420x840/0D0D0E/F8FAFC?text=Mobile+View) |
-
----
 
 ## 🏗️ Architecture
 
