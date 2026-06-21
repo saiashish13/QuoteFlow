@@ -8,50 +8,69 @@
   <img src="https://img.shields.io/badge/Stack-React%20%7C%20TypeScript-3178C6.svg" alt="Tech stack" />
   <img src="https://img.shields.io/badge/Build-Vite-646CFF.svg" alt="Build tool" />
 
+  <br />
+  <br />
+
   <h3>Curated inspiration, beautifully organized.</h3>
   <p>
-    Quote Flow is a modern quote discovery experience designed for people who want fresh ideas,
-    meaningful reflections, and a clean way to save what matters most.
+    Quote Flow is a thoughtful, local-first quote experience designed for discovering ideas,
+    saving what resonates, and turning inspiration into something you can revisit anytime.
   </p>
 
 </div>
 
 ---
 
-## ✨ Overview
+##   Overview
 
-Quote Flow is a polished, local-first quote application that helps users discover thoughtful quotes, browse them by category, save favorites, and build personalized collections. Built with a premium UI and thoughtful interaction design, it emphasizes speed, readability, and a calm, distraction-free experience.
+Quote Flow is a refined, local-first quote experience built to turn everyday moments into meaningful inspiration. The app helps you discover quotes that resonate, save favorites instantly, and organize ideas into collections that fit your mood, goals, and creative rhythm.
 
-### Why it exists
+> Built for focus, reflection, and a calmer way to engage with ideas every day.
 
-- Make inspiration easy to access at any moment
-- Offer a better way to organize and revisit meaningful quotes
-- Deliver a fast, elegant interface that works seamlessly across devices
-- Keep the experience lightweight and private by default
+### Why this project matters
 
-### Core benefits
+- Make inspiration accessible exactly when you need it
+- Create a calmer, more intentional way to revisit meaningful words
+- Deliver a premium, distraction-free interface that feels effortless to use
+- Keep the experience lightweight, private, and beautifully simple
 
-- ⚡ Instant quote discovery with category-based filtering
-- 🧠 Searchable library for quick access to quotes and authors
-- ❤️ One-tap favorites with browser persistence
-- 🗂️ Custom collections for mood, work, goals, and life themes
-- 🌙 Light/dark theme support for comfortable browsing
-- ♿ Accessible layouts and keyboard-friendly navigation
+### Highlights
+
+- ⚡ Discover quotes instantly with curated category filters
+- 🧠 Explore a searchable library of quotes and authors
+- ❤️ Save favorites with persistent browser storage
+- 🗂️ Organize quotes into collections for work, motivation, and reflection
+- 🌙 Switch seamlessly between light and dark themes
+- ♿ Navigate with a layout designed for clarity and accessibility
+
+### Project snapshot
+
+| Area | What it delivers |
+| --- | --- |
+| Experience | A clean, distraction-free quote browsing flow |
+| Personalization | Favorites and collections that stay available locally |
+| Design | A premium UI with responsive layouts and strong readability |
+| Accessibility | Keyboard-friendly interactions and thoughtful layout structure |
 
 ---
 
-## 📸 Screenshots
+## 📱 App Preview
 
-> Placeholder preview areas for showcasing the product visually.
+A polished snapshot of the experience across devices, showcasing the calm design, clean typography, and effortless browsing flow that define Quote Flow.
 
-<!-- Desktop view -->
-![Desktop view](https://via.placeholder.com/1400x900?text=Quote+Flow+Desktop)
+### Desktop experience
 
-<!-- Mobile view -->
-![Mobile view](https://via.placeholder.com/430x900?text=Quote+Flow+Mobile)
+![Desktop preview](https://via.placeholder.com/1400x900?text=Quote+Flow+Desktop)
 
-<!-- Dark mode preview -->
+### Mobile experience
+
+![Mobile preview](https://via.placeholder.com/430x900?text=Quote+Flow+Mobile)
+
+### Dark mode
+
 ![Dark mode preview](https://via.placeholder.com/1400x900?text=Quote+Flow+Dark+Mode)
+
+> These previews capture the product’s core identity: elegant visuals, intuitive navigation, and a distraction-free way to engage with quotes.
 
 ---
 
@@ -83,16 +102,25 @@ Quote Flow is a polished, local-first quote application that helps users discove
 
 ---
 
+## 🧭 How it works
+
+1. Start with a fresh quote recommendation tailored to your current mood.
+2. Refine the experience using category filters and quick search.
+3. Save quotes you connect with and group them into custom collections.
+4. Revisit your favorite ideas whenever you want a moment of clarity or inspiration.
+
+---
+
 ## 🏗️ Architecture Overview
 
-Quote Flow is structured as a modern React application with route-based navigation, local browser storage for user state, and a clean separation between UI components, data, and routing.
+Quote Flow is built as a modern React application with route-based navigation, browser persistence for user state, and a clear separation between UI, content, and app flow.
 
 ### Flow at a glance
 
-1. The user lands on the discovery page and loads a quote from the dataset.
-2. Category filters and search inputs refine the current quote pool.
+1. The user opens the discovery view and loads a quote from the curated dataset.
+2. Category filters and search inputs refine the available quote pool.
 3. Favorites and collections are stored locally in the browser.
-4. Navigation routes provide distinct experiences for discovery, browsing, and organization.
+4. The routing structure separates discovery, library, and collection experiences cleanly.
 
 ### Design approach
 
@@ -105,6 +133,8 @@ Quote Flow is structured as a modern React application with route-based navigati
 ---
 
 ## 🛠️ Tech Stack
+
+A carefully selected toolchain that keeps the app fast, maintainable, and visually polished.
 
 | Area | Technology | Why it was chosen |
 | --- | --- | --- |
