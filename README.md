@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://placehold.co/140x140/0D0D0E/00F2FE?text=QF" width="120" height="120" alt="Quote Flow logo placeholder" />
+<img src="https://placehold.co/140x140/0D0D0E/00F2FE?text=QF" width="120" height="120" alt="Quote Flow logo" />
 
 # Quote Flow
 
@@ -16,22 +16,31 @@ Quote Flow is a polished, local-first quote workspace for discovering meaningful
 [![Build](https://img.shields.io/badge/Build-Local%20Ready-06D6A0?style=for-the-badge)](#-installation)
 [![Stack](https://img.shields.io/badge/Stack-React%20%2B%20TypeScript-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 
+</div>
+
 <br />
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Architecture](#-architecture)
-- [Technology Stack](#-technology-stack)
-- [Installation](#-installation)
-- [Environment Variables](#-environment-variables)
-- [Usage Guide](#-usage-guide)
-- [Project Structure](#-project-structure)
-- [Testing](#-testing)
-- [Deployment](#-deployment)
-- [Contributing](#-contributing)
-- [License](#-license)
+## 📖 Table of Contents
 
-</div>
+- [📌 Overview](#-overview)
+- [✨ Features](#-features)
+- [📸 Screenshots](#-screenshots)
+- [🏗️ Architecture](#-architecture)
+- [🧰 Technology Stack](#-technology-stack)
+- [🚀 Installation](#-installation)
+- [🔐 Environment Variables](#-environment-variables)
+- [🧭 Usage Guide](#-usage-guide)
+- [📁 Project Structure](#-project-structure)
+- [⚙️ Technical Highlights](#-technical-highlights)
+- [⚡ Performance](#-performance)
+- [🔒 Security](#-security)
+- [🧪 Testing](#-testing)
+- [🚀 Deployment](#-deployment)
+- [🔄 CI/CD](#-ci/cd)
+- [🗺️ Future Improvements](#-future-improvements)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [👤 Author](#-author)
 
 ---
 
@@ -75,6 +84,22 @@ This project is intentionally lightweight and polished. It demonstrates modern f
 - ♿ Accessible UI primitives built with Radix-based components
 - 🔔 Toast feedback for key actions such as favorite, copy, and collection updates
 - 🧱 Clear separation between routes, reusable UI, and supporting helpers
+
+---
+
+## 📸 Screenshots
+
+### 🎲 Discover (On Demand)
+*Curated quote generator with tags, stats, copy/share, and instant refresh.*
+![Discover Screen](screenshots/discover.png)
+
+### 📚 Full Library
+*Comprehensive searchable library with multi-category filters.*
+![Library Screen](screenshots/library.png)
+
+### 🗂️ Collections
+*Custom user-created collections to organize quotes by theme.*
+![Collections Screen](screenshots/collections.png)
 
 ---
 
@@ -215,22 +240,6 @@ No environment variables are currently required for the local app experience.
 - Save it to favorites.
 - Add it to a collection such as “Leadership Notes” or “Design Inspiration”.
 - Return later to revisit the saved ideas.
-
-### Screenshots
-
-#### Dashboard
-
-Add screenshot here
-
-#### Library / Collections
-
-Add screenshot here
-
-#### Mobile View
-
-Add screenshot here
-
----
 
 ## 📚 API Documentation
 
@@ -428,22 +437,6 @@ jobs:
 
 ---
 
-## 📸 Screenshots
-
-### Dashboard
-
-Add screenshot here
-
-### Library
-
-Add screenshot here
-
-### Collections
-
-Add screenshot here
-
----
-
 ## 🗺️ Future Improvements
 
 - [x] Curated quote discovery experience
@@ -487,11 +480,10 @@ No license file is currently included in the repository. Before publishing or sh
 
 ## 👤 Author
 
-- Name: Add your name here
-- LinkedIn: Add your profile link here
-- Portfolio: Add your portfolio link here
+- Name: N.Sai Ashish
+- LinkedIn: https://www.linkedin.com/in/nakshatram-saiashish-85a166338/
 - GitHub: [@nsaiashish135](https://github.com/nsaiashish135)
-- Email: Add your email here
+- Email: nsaiashish2@gmail.com
 
 ---
 
